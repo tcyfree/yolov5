@@ -10,7 +10,7 @@ import core.main
 
 UPLOAD_FOLDER = r'./uploads'
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.secret_key = 'secret!'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -53,8 +53,8 @@ def upload_file():
         pid, image_info = core.main.c_main(
             image_path, current_app.model, file.filename.rsplit('.', 1)[1])
         return jsonify({'status': 1,
-                        'image_url': 'http://127.0.0.1:5003/tmp/ct/' + pid,
-                        'draw_url': 'http://127.0.0.1:5003/tmp/draw/' + pid,
+                        'image_url': 'http://cxy5003.vaiwan.com/tmp/ct/' + pid,
+                        'draw_url': 'http://cxy5003.vaiwan.com/tmp/draw/' + pid,
                         'image_info': image_info})
 
     return jsonify({'status': 0})
@@ -87,4 +87,4 @@ if __name__ == '__main__':
             os.makedirs(ff)
     with app.app_context():
         current_app.model = Detector()
-    app.run(host='127.0.0.1', port=5003, debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
