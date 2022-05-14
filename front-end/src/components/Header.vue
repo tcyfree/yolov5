@@ -1,14 +1,5 @@
 <template>
   <div id="Header">
-    <div class="top-left-edition">
-      <span style="color: #21b3b9; font-weight: bold">
-        <i class="el-icon-star-off" style="font-size: 23px"></i
-        >我的公众号：可达鸭的深度学习教程
-      </span>
-      <span>
-        <i class="el-icon-time" style="font-size: 23px"></i>CSDN、B站：BIT可达鸭
-      </span>
-    </div>
     <div id="word">
       <h1>{{ msg }}</h1>
     </div>
@@ -19,7 +10,7 @@ export default {
   name: "Header",
   data() {
     return {
-      msg: "YOLOv5-WEB端",
+      msg: "桑蚕疾病监测-WEB端",
       activeIndex: "1",
     };
   },
@@ -34,8 +25,6 @@ export default {
 }
 
 #word {
-  margin-left: 45%;
-  margin-top: -35px;
   margin-bottom: 37px;
   height: 60px;
   line-height: 3.2em;

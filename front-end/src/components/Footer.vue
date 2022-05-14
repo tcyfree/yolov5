@@ -8,7 +8,7 @@ export default {
   name: "Footer",
   data() {
     return {
-      msg: "Copyright 2021",
+      msg: "Copyright 2022",
     };
   },
 };
