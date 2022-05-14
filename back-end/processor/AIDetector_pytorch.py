@@ -17,7 +17,7 @@ class Detector(object):
 
     def init_model(self):
 
-        self.weights = 'weights/final.pt'
+        self.weights = 'weights/best.pt'
         self.device = '0' if torch.cuda.is_available() else 'cpu'
         self.device = select_device(self.device)
         model = attempt_load(self.weights, map_location=self.device)
