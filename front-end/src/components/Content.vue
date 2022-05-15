@@ -122,17 +122,17 @@
                 element-loading-spinner="el-icon-loading"
                 lazy
               >
-                <el-table-column label="目标类别" width="250px">
+                <el-table-column label="目标类别" width="250px" style="text-align:center">
                   <template slot-scope="scope">
                     <span>{{ scope.row[2] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="目标大小" width="250px">
+                <el-table-column label="结果" width="250px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="置信度" width="250px">
+                <el-table-column label="措施" width="250px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[1] }}</span>
                   </template>
@@ -281,6 +281,9 @@ export default {
 </script>
 
 <style>
+.el-table td, .el-table th {
+    text-align: center !important;
+}
 .el-button {
   padding: 12px 20px !important;
 }
