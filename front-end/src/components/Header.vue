@@ -20,13 +20,13 @@ export default {
 <style scoped>
 #Header {
   padding: 30px 110px 0 110px;
-  /*width: 90%;*/
+  width: 100%;
   margin: 10px auto;
 }
 
 #word {
   margin-bottom: 37px;
-  margin-right: 110px;
+  /*margin-right: 110px;*/
   height: 60px;
   line-height: 3.2em;
   letter-spacing: 8px;
