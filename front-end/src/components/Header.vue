@@ -10,7 +10,7 @@ export default {
   name: "Header",
   data() {
     return {
-      msg: "桑蚕疾病监测-WEB端",
+      msg: "桑蚕疾病监测",
       activeIndex: "1",
     };
   },
@@ -19,16 +19,18 @@ export default {
 </script>
 <style scoped>
 #Header {
-  padding: 30px 110px 0 150px;
-  width: 90%;
+  padding: 30px 110px 0 110px;
+  /*width: 90%;*/
   margin: 10px auto;
 }
 
 #word {
   margin-bottom: 37px;
+  margin-right: 110px;
   height: 60px;
   line-height: 3.2em;
   letter-spacing: 8px;
+  text-align: center;
 }
 
 h1 {

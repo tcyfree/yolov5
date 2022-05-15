@@ -510,7 +510,7 @@ div {
 
 #info_patient {
   margin-top: 10px;
-  margin-right: 160px;
+  margin-right: 150px;
 }
 </style>
 
