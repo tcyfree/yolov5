@@ -6,5 +6,7 @@ module.exports = {
   runtimeCompiler: undefined,
   productionSourceMap: undefined,
   parallel: false,
-  css: undefined
+  css: undefined,
+  // 跳过检查host
+  devServer: { disableHostCheck: true }
 }
