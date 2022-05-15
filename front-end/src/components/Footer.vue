@@ -29,6 +29,7 @@ p {
   text-align: center;
   margin: 30px auto;
   font-size: 1.1em;
+    margin-right: 160px;
 }
 </style>
 
