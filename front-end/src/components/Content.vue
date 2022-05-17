@@ -108,6 +108,8 @@
                 @change="update"
               />
             </el-button>
+            <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link>
+            <!-- <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="./Images.vu">测试样本下载</el-link> -->
           </div>
           <el-tabs v-model="activeName">
             <el-tab-pane label="检测到的目标" name="first">
@@ -182,7 +184,7 @@ export default {
     };
   },
   created: function () {
-    document.title = "YOLOv5目标检测WEB端";
+    document.title = "YOLOv5-桑蚕疾病监测";
   },
   methods: {
     true_upload() {
@@ -281,6 +283,8 @@ export default {
 </script>
 
 <style>
+.right{ float:right; width:100px; color:#409EFF;}
+
 .el-table td, .el-table th {
     text-align: center !important;
 }
@@ -516,5 +520,3 @@ div {
   margin-right: 150px;
 }
 </style>
-
-
