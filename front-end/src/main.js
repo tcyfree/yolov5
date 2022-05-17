@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import IMG from './Img'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import Element from 'element-ui'
@@ -20,12 +21,14 @@ Vue.prototype.$http = axios
 const router = new VueRouter({
     routes: [
         {path: "/App", component: App, meta: {title: "眼疾辅助诊断系统"},},
+        {path: "/img", component: IMG, meta: {title: "眼疾辅助诊断系统"},},
     ],
     mode: "history"
 })
 
 // // 全局注册组件
 Vue.component("App", App);
+Vue.component("IMG", IMG);
 
 /* eslint-disable no-new */
 new Vue({
