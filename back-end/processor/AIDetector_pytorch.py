@@ -1,10 +1,26 @@
 import torch
+from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from models.experimental import attempt_load
 from utils.general import non_max_suppression, scale_coords, letterbox
 from utils.torch_utils import select_device
 import cv2
 from random import randint
+
+
+def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 0), textSize=20):
+    if (isinstance(img, np.ndarray)):  # 判断是否OpenCV图片类型
+        img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    # 创建一个可以在给定图像上绘图的对象
+    draw = ImageDraw.Draw(img)
+    # 字体的格式
+    fontStyle = ImageFont.truetype(
+        "font/simsun.ttc", textSize, encoding="utf-8")
+    # 绘制文本
+    draw.text((left, top), text, textColor, font=fontStyle)
+    # 转换回OpenCV格式
+    return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
+
 
 
 class Detector(object):
@@ -56,12 +72,18 @@ class Detector(object):
             tf = max(tl - 1, 1)  # font thickness
             t_size = cv2.getTextSize(
                 cls_id, 0, fontScale=tl / 3, thickness=tf)[0]
+
             c2 = c1[0] + t_size[0], c1[1] - t_size[1] - 3
-            cv2.rectangle(image, c1, c2, color, -1, cv2.LINE_AA)  # filled
+
+            z1 = (x1+(x2-x1)//3,y1+(y2-y1)//2)
+            z2 = z1[0] + 10, z1[1] - t_size[1] - 3
+            print(c1)
+            #cv2.rectangle(image, z1, z2, color, -1, cv2.LINE_AA)  # filled
             # cv2.putText(image, '{} ID-{:.2f}'.format(cls_id, conf), (c1[0], c1[1] - 2), 0, tl / 3,
             #             [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
-            cv2.putText(image, '{}'.format(name), (c1[0], c1[1] - 2), 0, tl / 3,
-                        [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
+            cv2.putText(image, '{}'.format(name), (z1[0]+10,z1[1]), 0, 10,
+                        [0, 0, 255], thickness=20, lineType=cv2.LINE_8)
+            #cv2ImgAddText(image,"123123123", 500,500,(255, 255, 255), 30)
         return image
 
     def detect(self, im):
@@ -85,17 +107,17 @@ class Detector(object):
                     lbl = self.names[int(cls_id)] #lbl代表的是输出的类别
                     if lbl=="Healthy":
                         recommendation = "无"
-                        label = "的概率为健康"
+                        label = "健康"
                     elif lbl == "Virus":
                         recommendation = "分批提取，处理病蚕"
-                        label = "的概率为血液型脓病"
+                        label = "疑似为血液性脓病"
                     elif lbl == "Fungus":
                         recommendation = "清理蚕袋，彻底消毒"
-                        label = "的概率为微粒子疾病"
+                        label = "疑似为微粒子疾病"
 
-                    if np.round(float(conf), 3) >= 0.3 and np.round(float(conf), 3) < 0.4:
+                    if np.round(float(conf), 3) >= 0.3 and np.round(float(conf), 3) < 0.33:
                         recommendation = "建议重新拍摄"
-                        label = ",摄片不准,建议重拍!"
+                        label = "该摄片不准,建议重拍!"
                     #else lbl ==
                     x1, y1 = int(x[0]), int(x[1])
                     x2, y2 = int(x[2]), int(x[3])
@@ -103,7 +125,7 @@ class Detector(object):
                         (x1, y1, x2, y2, lbl,str(count+1), conf))
                     count += 1
                     key = '{}-{:02}'.format(lbl, count)
-                    image_info["第"+str(count)+"只"+"蚕"] = [str(np.round(float(conf), 3))+label,recommendation]
+                    image_info["第"+str(count)+"只"+"蚕"] = [label,recommendation]
             else:
                 image_info["无"] = ["无", "建议重新拍照上传","建议重新拍照上传"]
 
