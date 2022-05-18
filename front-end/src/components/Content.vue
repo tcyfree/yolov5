@@ -108,8 +108,8 @@
                 @change="update"
               />
             </el-button>
-            <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link>
-            <!-- <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="./Images.vu">测试样本下载</el-link> -->
+            <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
+            <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
           </div>
           <el-tabs v-model="activeName">
             <el-tab-pane label="检测到的目标" name="first">
