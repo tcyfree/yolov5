@@ -227,6 +227,14 @@ export default {
       this.url_1 = this.$options.methods.getObjectURL(file);
       let param = new FormData(); //创建form对象
       param.append("file", file, file.name); //通过append向form对象添加数据
+      //获取后缀
+      var ext = file.name.substr(file.name.lastIndexOf(".")+1);
+      if(!(['png', 'jpg', 'jpeg'].indexOf(ext.toLowerCase()) !== -1)) {
+        console.log(ext);
+        alert("只能上传jpg,jpeg,png格式的图片！");
+        location.reload()
+        return;
+      }
       var timer = setInterval(() => {
         this.myFunc();
       }, 30);
