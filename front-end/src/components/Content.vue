@@ -15,6 +15,11 @@
 
     <div id="CT">
       <div id="CT_image">
+        <div id="Header" style="width: 800px;">
+          <div id="word">
+            <h1>桑蚕疾病监测</h1>
+          </div>
+        </div>
         <el-card
           id="CT_image_1"
           class="box-card"
@@ -143,6 +148,9 @@
             </el-tab-pane>
           </el-tabs>
         </el-card>
+        <div id="Footer"  style="width: 800px;">
+          <p>Copyright 2022</p>
+        </div>
       </div>
     </div>
   </div>
@@ -290,6 +298,46 @@ export default {
 </script>
 
 <style>
+#Header {
+  padding-top: 30px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+#word {
+  margin-bottom: 37px;
+  margin-right: 110px;
+  height: 60px;
+  line-height: 3.2em;
+  letter-spacing: 8px;
+  text-align: center;
+}
+
+h1 {
+  /*text-align: center;*/
+  color: #21b3b9;
+  letter-spacing: 30px;
+  font-size: 2.3em;
+}
+
+#Footer {
+  /*background:#F2F6FC;*/
+  padding: 6px;
+  border-radius: 5px;
+  width: 80%;
+  height: 80px;
+  margin: 20px auto;
+  margin-top: 140px;
+}
+
+p {
+  color: #21b3b9;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 1.1em;
+  margin-right: 160px;
+}
+
 .right{ float:right; width:100px; color:#409EFF;}
 
 .el-table td, .el-table th {

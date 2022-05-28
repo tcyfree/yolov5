@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
     <app-content></app-content>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 import Content from "./components/Content";
 export default {
   name: "眼疾辅助诊断系统",
@@ -16,8 +16,8 @@ export default {
     return {};
   },
   components: {
-    "app-header": Header,
-    "app-footer": Footer,
+    // "app-header": Header,
+    // "app-footer": Footer,
     "app-content": Content,
   },
   methods: {},
