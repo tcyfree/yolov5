@@ -321,13 +321,13 @@ h1 {
 }
 
 #Footer {
-  /*background:#F2F6FC;*/
+  /* background:#F2F6FC; */
   padding: 6px;
   border-radius: 5px;
   width: 80%;
   height: 80px;
   margin: 20px auto;
-  margin-top: 140px;
+  /* margin-top: 140px; */
 }
 
 p {
