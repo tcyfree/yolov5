@@ -5,15 +5,29 @@ import App from './App'
 import IMG from './Img'
 import VueRouter from 'vue-router'
 import axios from 'axios'
-import Element from 'element-ui'
+// import Element from 'element-ui'
 import echarts from "echarts";
 
 Vue.prototype.$echarts = echarts;
-import '../node_modules/element-ui/lib/theme-chalk/index.css'
+// import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import '../src/assets/style.css'
 import './theme/index.css'
 
-Vue.use(Element)
+// Vue.use(Element)
+
+//按需引入
+import { Dialog,Card,Image,Button,Tabs,Table,TabPane,TableColumn,Link,Progress } from 'element-ui';
+Vue.use(Dialog)
+Vue.use(Card)
+Vue.use(Image)
+Vue.use(Button)
+Vue.use(Tabs)
+Vue.use(Table)
+Vue.use(TabPane)
+Vue.use(TableColumn)
+Vue.use(Link)
+Vue.use(Progress)
+
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.prototype.$http = axios
