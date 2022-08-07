@@ -286,7 +286,7 @@ export default {
       this.$notify({
         title: "预测成功",
         message: "点击图片可以查看大图",
-        duration: 0,
+        // duration: 0,
         type: "success",
       });
     },
