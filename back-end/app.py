@@ -53,8 +53,8 @@ def upload_file():
         pid, image_info = core.main.c_main(
             image_path, current_app.model, file.filename.rsplit('.', 1)[1])
         return jsonify({'status': 1,
-                        'image_url': 'http://cxy5003.vaiwan.com/tmp/ct/' + pid,
-                        'draw_url': 'http://cxy5003.vaiwan.com/tmp/draw/' + pid,
+                        'image_url': 'https://cxy.ssdlab.cn/tmp/ct/' + pid,
+                        'draw_url': 'https://cxy.ssdlab.cn/tmp/draw/' + pid,
                         'image_info': image_info})
 
     return jsonify({'status': 0})

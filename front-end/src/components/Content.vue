@@ -163,7 +163,7 @@ export default {
   name: "Content",
   data() {
     return {
-      server_url: "http://cxy5003.vaiwan.com/",
+      server_url: "https://cxy.ssdlab.cn/",
       activeName: "first",
       active: 0,
       centerDialogVisible: true,
