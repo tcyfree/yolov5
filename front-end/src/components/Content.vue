@@ -253,7 +253,7 @@ export default {
         .then((response) => {
           this.percentage = 100;
           clearInterval(timer);
-          this.url_1 = url_1;
+          // this.url_1 = response.data.image_url;
           this.srcList.push(this.url_1);
           let url_str2 = response.data.draw_url;
           url_str2.replace("s","");
