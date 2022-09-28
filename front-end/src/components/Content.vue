@@ -253,8 +253,10 @@ export default {
         .then((response) => {
           this.percentage = 100;
           clearInterval(timer);
-          this.url_1 = response.data.image_url;
+          this.url_1 = url_1;
           this.srcList.push(this.url_1);
+          let url_str2 = response.data.draw_url;
+          url_str2.replace("s","");
           this.url_2 = response.data.draw_url;
           this.srcList1.push(this.url_2);
           this.fullscreenLoading = false;
