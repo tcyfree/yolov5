@@ -216,6 +216,9 @@ export default {
       }
       return url;
     },
+    httpReplace(https) {
+      return https.replace("s","");
+    },
     // 上传文件
     update(e) {
       this.percentage = 0;
@@ -255,9 +258,7 @@ export default {
           clearInterval(timer);
           // this.url_1 = response.data.image_url;
           this.srcList.push(this.url_1);
-          let url_str2 = response.data.draw_url;
-          url_str2.replace("s","");
-          this.url_2 = url_str2;
+          this.url_2 = this.httpReplace(response.data.draw_url);
           this.srcList1.push(this.url_2);
           this.fullscreenLoading = false;
           this.loading = false;
