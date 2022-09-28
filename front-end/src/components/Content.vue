@@ -257,7 +257,7 @@ export default {
           this.srcList.push(this.url_1);
           let url_str2 = response.data.draw_url;
           url_str2.replace("s","");
-          this.url_2 = response.data.draw_url;
+          this.url_2 = url_str2;
           this.srcList1.push(this.url_2);
           this.fullscreenLoading = false;
           this.loading = false;
