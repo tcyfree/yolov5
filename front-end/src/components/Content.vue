@@ -236,7 +236,7 @@ export default {
       this.showbutton = false;
       let file = e.target.files[0];
       if(file.size > 3145728) {
-        alert("请上传小于3M的图片！" + file.size);
+        alert("请上传小于3M的图片！");
         location.reload()
         return;
       }
