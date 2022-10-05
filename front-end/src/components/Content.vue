@@ -216,6 +216,9 @@ export default {
       }
       return url;
     },
+    httpReplace(https) {
+      return https.replace("s","");
+    },
     // 上传文件
     update(e) {
       this.percentage = 0;
@@ -232,6 +235,11 @@ export default {
       this.loading = true;
       this.showbutton = false;
       let file = e.target.files[0];
+      if(file.size > 3145728) {
+        alert("请上传小于3M的图片！");
+        location.reload()
+        return;
+      }
       this.url_1 = this.$options.methods.getObjectURL(file);
       let param = new FormData(); //创建form对象
       param.append("file", file, file.name); //通过append向form对象添加数据
@@ -253,9 +261,9 @@ export default {
         .then((response) => {
           this.percentage = 100;
           clearInterval(timer);
-          this.url_1 = response.data.image_url;
+          // this.url_1 = response.data.image_url;
           this.srcList.push(this.url_1);
-          this.url_2 = response.data.draw_url;
+          this.url_2 = this.httpReplace(response.data.draw_url);
           this.srcList1.push(this.url_2);
           this.fullscreenLoading = false;
           this.loading = false;

@@ -26,7 +26,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 def after_request(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Credentials'] = 'true'
-    response.headers['Access-Control-Allow-Methods'] = 'POST'
+    response.headers['Access-Control-Allow-Methods'] = 'POST,GET,OPTIONS,DELETE'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, X-Requested-With'
     return response
 
