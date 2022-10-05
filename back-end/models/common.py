@@ -6,7 +6,7 @@ import warnings
 import torch
 import torch.nn as nn
 
-from utils.general import non_max_suppression
+from _utils.general import non_max_suppression
 
 class SPPF(nn.Module):
   # Spatial Pyramid Pooling - Fast (SPPF) layer for YOLOv5 by Glenn Jocher

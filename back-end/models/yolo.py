@@ -10,9 +10,9 @@ import torch.nn as nn
 
 from models.common import Conv, Bottleneck, SPP, DWConv, Focus, BottleneckCSP, Concat, NMS
 from models.experimental import MixConv2d, CrossConv, C3
-from utils.autoanchor import check_anchor_order
-from utils.general import make_divisible
-from utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights
+from _utils.autoanchor import check_anchor_order
+from _utils.general import make_divisible
+from _utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights
 
 thop = None
 

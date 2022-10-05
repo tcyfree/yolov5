@@ -4,13 +4,12 @@ import os
 import shutil
 from datetime import timedelta
 from flask import *
-from processor.AIDetector_pytorch import Detector
-
+from AIDetector_pytorch import Detector
 import core.main
 
 UPLOAD_FOLDER = r'./uploads'
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'JPG', 'jpeg', 'tif'])
 app = Flask(__name__)
 app.secret_key = 'secret!'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
