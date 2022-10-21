@@ -259,6 +259,12 @@ export default {
       axios
         .post(this.server_url + "/upload", param, config)
         .then((response) => {
+          if (response.status != 200) {
+            alert("请重新上传，图片格式错误或服务器内部错误！");
+          }
+          if (response.data.status != 1) {
+            alert(response.data.msg);
+          }
           this.percentage = 100;
           clearInterval(timer);
           // this.url_1 = response.data.image_url;
