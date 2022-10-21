@@ -34,7 +34,7 @@ class Detector(object):
 
     def init_model(self):
 
-        self.weights = 'weights/new/best.pt'
+        self.weights = 'weights/best.pt'
         self.device ='cpu'
         self.device = select_device(self.device)
         model = attempt_load(self.weights, map_location=self.device)
@@ -145,10 +145,12 @@ class Detector(object):
 
 if __name__ == '__main__':
     yolo5 = Detector()
-    x = "D:/Projects/yolov5-5.0/data/images/sw2.png"
-    x = cv2.imread(x)
+    H = "/yolov5/back-end/detect_images/772D7F418C16F7BF0D31553957817BD3.png.jpg"
+    V = "/yolov5/back-end/detect_images/Virus/IMG_4317_r180.jpg"
+    F = "/yolov5/back-end/detect_images/Fungus/5CC3B2C4AF3063AED0FB528522A43127.png.jpg"
+    x = cv2.imread(V)
     img_y, image_info = yolo5.detect(x)
     print(image_info)
-    cv2.imshow('./tmp/draw/{}.{}', img_y)
-    cv2.waitKey()
-    print()
+    # cv2.imshow('./tmp/draw/{}.{}', img_y)
+    # cv2.waitKey()
+    # print()
