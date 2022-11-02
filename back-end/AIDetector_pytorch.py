@@ -23,7 +23,7 @@ def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 0), textSize=20):
     return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
 
 
-
+   
 class Detector(object):
 
     def __init__(self):
@@ -104,10 +104,15 @@ class Detector(object):
 
         pred = self.m(img, augment=False)[0]
         pred = pred.float()
-        pred = non_max_suppression(pred, self.threshold, 0.3)
+        pred = non_max_suppression(pred, self.threshold, 0.45)
+
+        virus_label = 0
+        healthy_label = 0
+        fungus_label = 0
 
         pred_boxes = []
         image_info = {}
+        image_info_many = {}
         count = 0
         for det in pred:
             if det is not None and len(det):
@@ -117,12 +122,15 @@ class Detector(object):
 
                     lbl = self.names[int(cls_id)] #lbl代表的是输出的类别
                     if lbl=="Healthy":
+                        healthy_label += 1
                         recommendation = "无"
                         label = "健康"
                     elif lbl == "Virus":
+                        virus_label += 1
                         recommendation = "分批提取，处理病蚕"
                         label = "疑似为血液性脓病"
                     elif lbl == "Fungus":
+                        fungus_label += 1
                         recommendation = "清理蚕袋，彻底消毒"
                         label = "疑似为微粒子疾病"
 
@@ -140,15 +148,28 @@ class Detector(object):
             else:
                 image_info["无"] = ["无", "建议重新拍照上传","建议重新拍照上传"]
 
-        im = self.plot_bboxes(im, pred_boxes)
-        return im, image_info
+        total = virus_label + fungus_label + healthy_label
+
+        if total <= 5:
+            im = self.plot_bboxes(im, pred_boxes)
+            return im, image_info
+        elif total > 5:
+            image_info_many["Total：" + str(total) ] = [" "]
+            if virus_label > 0:
+                image_info_many["有" + str(virus_label) + "只" + "蚕"] = ["疑似为血液性脓病", "分批提取，处理病蚕"]
+            if healthy_label > 0:
+                image_info_many["有" + str(healthy_label) + "只" + "蚕"] = ["健康", "无"]
+            if fungus_label > 0:
+                image_info_many["有" + str(fungus_label) + "只" + "蚕"] = ["疑似为微粒子疾病", "清理蚕袋，彻底消毒"]
+
+            return im, image_info_many
 
 if __name__ == '__main__':
     yolo5 = Detector()
-    x = "D:/Projects/yolov5-5.0/data/images/sw2.png"
+    x = "/yolov5/back-end/detect_images/Healthy/772D7F418C16F7BF0D31553957817BD3.png.jpg"
     x = cv2.imread(x)
     img_y, image_info = yolo5.detect(x)
     print(image_info)
-    cv2.imshow('./tmp/draw/{}.{}', img_y)
-    cv2.waitKey()
-    print()
+    # cv2.imshow('./tmp/draw/{}.{}', img_y)
+    # cv2.waitKey()
+    # print()

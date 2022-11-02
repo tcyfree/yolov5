@@ -129,12 +129,12 @@
                 element-loading-spinner="el-icon-loading"
                 lazy
               >
-                <el-table-column label="目标类别" width="250px" style="text-align:center">
+                <el-table-column label="结果" width="250px" style="text-align:center">
                   <template slot-scope="scope">
                     <span>{{ scope.row[2] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="结果" width="250px">
+                <el-table-column label="目标类别" width="250px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
@@ -163,7 +163,7 @@ export default {
   name: "Content",
   data() {
     return {
-      server_url: "https://cxy.ssdlab.cn/",
+      server_url: "http://172.27.112.1:5003/",
       activeName: "first",
       active: 0,
       centerDialogVisible: true,
