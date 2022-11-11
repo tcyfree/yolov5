@@ -25,7 +25,7 @@ def predict(dataset, model, ext):
     else:
         img_y, image_info = model.out(step2_img)
 
-    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y)
+    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y,[int( cv2.IMWRITE_JPEG_QUALITY), 5])
         #raise Exception('保存图片时出错.Error saving thepicture.')
 
     return image_info
