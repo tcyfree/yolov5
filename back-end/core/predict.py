@@ -24,8 +24,11 @@ def predict(dataset, model, ext):
         img_y, image_info = model.detect(step2_img)
     else:
         img_y, image_info = model.out(step2_img)
-
-    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y,[int( cv2.IMWRITE_JPEG_QUALITY), 10])
+    # select different compress method by ext
+    if ext == 'png':
+        cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y,[int(cv2.IMWRITE_PNG_COMPRESSION), 1])
         #raise Exception('保存图片时出错.Error saving thepicture.')
+    else:
+        cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y,[int( cv2.IMWRITE_JPEG_QUALITY), 10])
 
     return image_info

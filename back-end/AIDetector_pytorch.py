@@ -34,7 +34,7 @@ class Detector(object):
 
     def init_model(self):
 
-        self.weights = 'weights/best.pt'
+        self.weights = 'weights/new/best.pt'
         self.device ='cpu'
         self.device = select_device(self.device)
         model = attempt_load(self.weights, map_location=self.device)
