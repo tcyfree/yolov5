@@ -53,7 +53,7 @@ def upload_file():
             image_path, current_app.model, file.filename.rsplit('.', 1)[1])
         return jsonify({'status': 1,
                         'image_url': 'https://cxy.ssdlab.cn/tmp/ct/' + pid,
-                        'draw_url': 'https://cxy.ssdlab.cn/tmp/draw/' + pid,
+                        'draw_url': 'https://cxy.ssdlab.cn/tmp/comp/' + pid,
                         'image_info': image_info})
 
     return jsonify({'status': 0})
