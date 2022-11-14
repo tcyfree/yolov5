@@ -1,9 +1,22 @@
 import cv2
 import numpy as np
-
+import os
 from classification import Classification
 from PIL import Image
 import numpy
+
+def compress_images(infile,outfile,mb=350,step=10, quality=60):
+    image_size = os.path.getsize(infile)/1024
+    im = Image.open(infile)
+    if image_size <= mb:
+        return im.save(outfile)
+    while image_size > mb:
+        im.save(outfile, quality=quality)
+        if quality - step < 0:
+            break
+        quality -= step
+        image_size = os.path.getsize(outfile)/1024
+
 
 def predict(dataset, model, ext):
 
@@ -25,7 +38,13 @@ def predict(dataset, model, ext):
     else:
         img_y, image_info = model.out(step2_img)
 
-    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y,[int( cv2.IMWRITE_JPEG_QUALITY), 5])
+    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y)
         #raise Exception('保存图片时出错.Error saving thepicture.')
+    
+    filename = '{}.{}'.format(file_name, ext)
+    infile = os.path.join('./tmp/draw', filename)
+    outfile = './tmp/comp/{}'.format(filename)
+    
+    compress_images(infile,outfile)
 
     return image_info

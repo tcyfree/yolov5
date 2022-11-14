@@ -79,7 +79,7 @@ def show_photo(file):
 if __name__ == '__main__':
     files = [
         'uploads', 'tmp/ct', 'tmp/draw',
-        'tmp/image', 'tmp/mask', 'tmp/uploads'
+        'tmp/image', 'tmp/mask', 'tmp/uploads', 'tmp/comp'
     ]
     for ff in files:
         if not os.path.exists(ff):
