@@ -93,11 +93,11 @@
       </div>
       <div id="info_patient">
         <!-- 卡片放置表格 -->
-        <el-card style="border-radius: 8px">
-          <div slot="header" class="clearfix">
-            <span>检测目标</span>
+        <!-- <el-card> -->
+          <div slot="header" class="clearfix unify">
+            <!-- <span>检测目标</span> -->
             <el-button
-              style="margin-left: 35px"
+              style="margin-left: 3px"
               v-show="!showbutton"
               type="primary"
               icon="el-icon-upload"
@@ -116,7 +116,7 @@
             <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
             <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
           </div>
-          <el-tabs v-model="activeName">
+          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px">
             <el-tab-pane label="检测到的目标" name="first">
               <!-- 表格存放特征值 -->
               <el-table
@@ -128,6 +128,7 @@
                 element-loading-text="数据正在处理中，请耐心等待"
                 element-loading-spinner="el-icon-loading"
                 lazy
+                class="unify"
               >
                 <el-table-column label="结果" width="250px" style="text-align:center">
                   <template slot-scope="scope">
@@ -139,7 +140,7 @@
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="措施" width="250px">
+                <el-table-column label="措施" width="300px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[1] }}</span>
                   </template>
@@ -147,7 +148,7 @@
               </el-table>
             </el-tab-pane>
           </el-tabs>
-        </el-card>
+        <!-- </el-card> -->
         <div id="Footer"  style="width: 800px;">
           <p>Copyright 2022</p>
         </div>
@@ -163,7 +164,8 @@ export default {
   name: "Content",
   data() {
     return {
-      server_url: "http://172.27.112.1:5003/",
+      // server_url: "http://172.27.112.1:5003/",
+      server_url: "http://cxy.ssdlab.cn/",
       activeName: "first",
       active: 0,
       centerDialogVisible: true,
@@ -281,7 +283,6 @@ export default {
             this.feature_list.push(response.data.image_info[this.feat_list[i]]);
           }
 
-          this.feature_list.push(response.data.image_info);
           this.feature_list_1 = this.feature_list[0];
           this.dialogTableVisible = false;
           this.percentage = 0;
@@ -320,7 +321,7 @@ export default {
 
 #word {
   margin-bottom: 37px;
-  margin-right: 110px;
+  /* margin-right: 110px; */
   height: 60px;
   line-height: 3.2em;
   letter-spacing: 8px;
@@ -381,6 +382,22 @@ p {
   padding: 0;
 }
 
+.unify {
+  width: 800px;
+  margin: 10px auto;
+}
+
+.add-border {
+  border-radius: 4px;
+  border: 1px solid #EBEEF5;
+  background-color: #FFF;
+  overflow: hidden;
+  color: #303133;
+  -webkit-transition: .3s;
+  transition: .3s;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+}
+
 .dialog_info {
   margin: 20px auto;
 }
@@ -418,7 +435,8 @@ p {
   display: flex;
   height: 100%;
   width: 100%;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   margin-right: 0px;
@@ -430,14 +448,14 @@ p {
   height: 40%;
   margin: 0px auto;
   padding: 0px auto;
-  margin-right: 180px;
+  /* margin-right: 180px; */
   margin-bottom: 0px;
   border-radius: 4px;
 }
 
 #CT_image {
   margin-bottom: 60px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   margin-top: 5px;
 }
 
@@ -546,7 +564,7 @@ div {
 
 #Content {
   width: 85%;
-  height: 800px;
+  /* height: 800px; */
   background-color: #ffffff;
   margin: 15px auto;
   display: flex;
@@ -583,9 +601,14 @@ div {
   /*color: #303133 !important;*/
   margin: 20px 26px;
 }
-
-#info_patient {
-  margin-top: 10px;
-  margin-right: 150px;
+#info_patient>>>.el-card {
+  border: 0;
 }
+/* #info_patient { */
+  /* margin-top: 10px; */
+  /* margin-right: 150px; */
+  /* border-color: aquamarine;
+  border-style: solid;
+  border-width: 5px; */
+/* } */
 </style>
