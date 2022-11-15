@@ -213,7 +213,7 @@ export default {
     };
   },
   created: function () {
-    document.title = "YOLOv5-桑蚕疾病监测";
+    document.title = "桑蚕疾病监测";
   },
   methods: {
     true_upload() {
