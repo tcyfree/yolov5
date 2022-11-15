@@ -15,11 +15,26 @@
 
     <div id="CT">
       <div id="CT_image">
-        <div id="Header" style="width: 800px;">
+        <div id="Header" 
+        style="width: 800px; background-color: darkgreen;border-radius: 6px;     
+        margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 250px;">
           <div id="word">
             <h1>桑蚕疾病监测</h1>
           </div>
         </div>
+        <div style="display:flex; margin-top:25px;">
+          <div>
+                <el-image
+                :src="mini_url"
+                class="image_mini"
+                style="border-radius: 5px 5px 0 0; margin-top:2px;"
+                >
+                </el-image>
+              <div class="img_info_mini" style="border-radius: 0 0 5px 5px">
+                <span style="color: white; letter-spacing: 6px">小程序二维码</span>
+              </div>
+            </div>
+        
         <el-card
           id="CT_image_1"
           class="box-card"
@@ -28,6 +43,7 @@
             width: 800px;
             height: 360px;
             margin-bottom: -30px;
+            background-color: beige;
           "
         >
           <div class="demo-image__preview1">
@@ -90,11 +106,12 @@
             </div>
           </div>
         </el-card>
+        </div>
       </div>
       <div id="info_patient">
         <!-- 卡片放置表格 -->
         <!-- <el-card> -->
-          <div slot="header" class="clearfix unify">
+          <div slot="header" class="clearfix unify" style="margin-top: 5px; margin-bottom: 10px;margin-right: auto;margin-left: 250px;}">
             <!-- <span>检测目标</span> -->
             <el-button
               style="margin-left: 3px"
@@ -116,14 +133,15 @@
             <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
             <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
           </div>
-          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px">
+          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 250px;">
             <el-tab-pane label="检测到的目标" name="first">
               <!-- 表格存放特征值 -->
               <el-table
                 :data="feature_list"
-                height="390"
+                height="300"
                 border
-                style="width: 750px; text-align: center"
+                stripe
+                style="width: 750px; text-align: center; margin-bottom: 20px;"
                 v-loading="loading"
                 element-loading-text="数据正在处理中，请耐心等待"
                 element-loading-spinner="el-icon-loading"
@@ -169,6 +187,7 @@ export default {
       activeName: "first",
       active: 0,
       centerDialogVisible: true,
+      mini_url:"http://ssdlab.cn:8888/down/ccpDbNUvHanm",
       url_1: "",
       url_2: "",
       textarea: "",
@@ -314,15 +333,16 @@ export default {
 
 <style>
 #Header {
-  padding-top: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
   margin: 10px auto;
 }
 
 #word {
-  margin-bottom: 37px;
+  /* margin-bottom: 37px; */
   /* margin-right: 110px; */
-  height: 60px;
+  height: 50px;
   line-height: 3.2em;
   letter-spacing: 8px;
   text-align: center;
@@ -341,7 +361,10 @@ h1 {
   border-radius: 5px;
   width: 80%;
   height: 80px;
-  margin: 20px auto;
+  margin-left: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
   /* margin-top: 140px; */
 }
 
@@ -357,6 +380,12 @@ p {
 
 .el-table td, .el-table th {
     text-align: center !important;
+}
+
+.el-table th {
+    text-align: center !important;
+    font-size: 15px;
+    color: #21b3b9;
 }
 .el-button {
   padding: 12px 20px !important;
@@ -398,6 +427,10 @@ p {
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 }
 
+.talbe-header {
+  font-size: 15px;
+  color: #21b3b9;
+}
 .dialog_info {
   margin: 20px auto;
 }
@@ -446,7 +479,11 @@ p {
 #CT_image_1 {
   width: 90%;
   height: 40%;
-  margin: 0px auto;
+  /* margin: 0px auto; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: auto;
+  margin-left: 75px;
   padding: 0px auto;
   /* margin-right: 180px; */
   margin-bottom: 0px;
@@ -469,6 +506,21 @@ p {
 .img_info_1 {
   height: 30px;
   width: 275px;
+  text-align: center;
+  background-color: #21b3b9;
+  line-height: 30px;
+}
+
+.image_mini {
+  width: 175px;
+  height: 160px;
+  background: #ffffff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.img_info_mini {
+  height: 30px;
+  width: 175px;
   text-align: center;
   background-color: #21b3b9;
   line-height: 30px;
@@ -565,7 +617,7 @@ div {
 #Content {
   width: 85%;
   /* height: 800px; */
-  background-color: #ffffff;
+  background-color: #e9ebee;
   margin: 15px auto;
   display: flex;
   min-width: 1200px;
