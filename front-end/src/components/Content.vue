@@ -17,7 +17,7 @@
       <div id="CT_image">
         <div id="Header" 
         style="width: 800px; background-color: darkgreen;border-radius: 6px;     
-        margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 195px;">
+        margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 230px;">
           <div id="word">
             <h1>桑蚕疾病监测</h1>
           </div>
@@ -31,7 +31,7 @@
                 >
                 </el-image>
               <div class="img_info_mini" style="border-radius: 0 0 5px 5px">
-                <span style="color: white; letter-spacing: 6px">小程序二维码</span>
+                <span style="color: white; letter-spacing: 6px;">小程序二维码</span>
               </div>
             </div>
         
@@ -117,7 +117,7 @@
         <!-- 卡片放置表格 -->
         <!-- <el-card> -->
           <div>
-            <div slot="header" class="clearfix unify" style="margin-top: 5px; margin-bottom: 10px;margin-right: auto;margin-left: 195px;}">
+            <div slot="header" class="clearfix unify" style="margin-top: 5px; margin-bottom: 10px;margin-right: auto;margin-left: 230px;}">
             <!-- <span>检测目标</span> -->
                 <el-button
                   style="margin-left: 3px"
@@ -139,7 +139,7 @@
             <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
               <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
             </div>
-          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: 0px;margin-left: 195px;">
+          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: 0px;margin-left: 230px;">
             <el-tab-pane label="检测到的目标" name="first">
               <!-- 表格存放特征值 -->
               <el-table
@@ -176,7 +176,7 @@
       </div>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center;
-                margin-left: 195px; margin-top:30px;
+                margin-left: 230px; margin-top:30px;
                 width: 800px;">
           <div>
           <br>
@@ -203,7 +203,7 @@
           </div>
         </div>
     <div style="display: flex; flex-direction: column; align-items: center;
-                margin-left: 195px; margin-top:30px;
+                margin-left: 230px; margin-top:30px;
                 width: 800px;">
           <el-divider style="background-color: #E4E7ED;width: 100%;height: 2px;margin-bottom: 0px;"></el-divider>
           <span>
@@ -228,7 +228,7 @@ export default {
       activeName: "first",
       active: 0,
       centerDialogVisible: true,
-      mini_url:"http://ssdlab.cn:8888/down/ccpDbNUvHanm",
+      mini_url:"http://ssdlab.cn:8888/down/2Q4PmS3SduS2",
       overview_url:"http://ssdlab.cn:8888/down/c9WJ3Gw9rzyI",
       url_1: "",
       url_2: "",
@@ -561,15 +561,15 @@ p {
 }
 
 .image_mini {
-  width: 175px;
-  height: 160px;
+  width: 210px;
+  height: 200px;
   background: #ffffff;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
 .img_info_mini {
   height: 30px;
-  width: 175px;
+  width: 210px;
   text-align: center;
   background-color: #21b3b9;
   line-height: 30px;
