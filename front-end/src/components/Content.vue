@@ -17,12 +17,12 @@
       <div id="CT_image">
         <div id="Header" 
         style="width: 800px; background-color: darkgreen;border-radius: 6px;     
-        margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 250px;">
+        margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 195px;">
           <div id="word">
             <h1>桑蚕疾病监测</h1>
           </div>
         </div>
-        <div style="display:flex; margin-top:25px;">
+        <div style="display:inline-flex; margin-top:25px; justify-content: flex-start;">
           <div>
                 <el-image
                 :src="mini_url"
@@ -44,8 +44,11 @@
             height: 360px;
             margin-bottom: -30px;
             background-color: beige;
+            display:flex;
+            justify-content: space-around;
           "
         >
+        <div style="display:flex; justify-content: space-around;">
           <div class="demo-image__preview1">
             <div
               v-loading="loading"
@@ -56,7 +59,7 @@
                 :src="url_1"
                 class="image_1"
                 :preview-src-list="srcList"
-                style="border-radius: 3px 3px 0 0"
+                style="border-radius: 3px 3px 0 0;"
               >
                 <div slot="error">
                   <div slot="placeholder" class="error">
@@ -84,7 +87,7 @@
               <span style="color: white; letter-spacing: 6px">原始图像</span>
             </div>
           </div>
-          <div class="demo-image__preview2">
+          <div class="demo-image__preview2" style="margin-left:80px;">
             <div
               v-loading="loading"
               element-loading-text="处理中,请耐心等待"
@@ -105,35 +108,38 @@
               <span style="color: white; letter-spacing: 4px">检测结果</span>
             </div>
           </div>
+        </div>
+
         </el-card>
         </div>
       </div>
-      <div id="info_patient">
+      <div id="info_patient" style="display:flex; justify-content: flex-start;">
         <!-- 卡片放置表格 -->
         <!-- <el-card> -->
-          <div slot="header" class="clearfix unify" style="margin-top: 5px; margin-bottom: 10px;margin-right: auto;margin-left: 250px;}">
+          <div>
+            <div slot="header" class="clearfix unify" style="margin-top: 5px; margin-bottom: 10px;margin-right: auto;margin-left: 195px;}">
             <!-- <span>检测目标</span> -->
-            <el-button
-              style="margin-left: 3px"
-              v-show="!showbutton"
-              type="primary"
-              icon="el-icon-upload"
-              class="download_bt"
-              v-on:click="true_upload2"
-            >
-              重新选择图像
-              <input
-                ref="upload2"
-                style="display: none"
-                name="file"
-                type="file"
-                @change="update"
-              />
-            </el-button>
+                <el-button
+                  style="margin-left: 3px"
+                  v-show="!showbutton"
+                  type="primary"
+                  icon="el-icon-upload"
+                  class="download_bt"
+                  v-on:click="true_upload2"
+                >
+                  重新选择图像
+                <input
+                  ref="upload2"
+                  style="display: none"
+                  name="file"
+                  type="file"
+                  @change="update"
+                />
+              </el-button>
             <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
-            <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
-          </div>
-          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 250px;">
+              <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
+            </div>
+          <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: 0px;margin-left: 195px;">
             <el-tab-pane label="检测到的目标" name="first">
               <!-- 表格存放特征值 -->
               <el-table
@@ -141,7 +147,7 @@
                 height="300"
                 border
                 stripe
-                style="width: 750px; text-align: center; margin-bottom: 20px;"
+                style="width: 750px; text-align: center; margin-bottom: 20px;margin-right: 470px;"
                 v-loading="loading"
                 element-loading-text="数据正在处理中，请耐心等待"
                 element-loading-spinner="el-icon-loading"
@@ -167,11 +173,46 @@
             </el-tab-pane>
           </el-tabs>
         <!-- </el-card> -->
-        <div id="Footer"  style="width: 800px;">
-          <p>Copyright 2022</p>
-        </div>
       </div>
     </div>
+    <div style="display: flex; flex-direction: column; align-items: center;
+                margin-left: 195px; margin-top:30px;
+                width: 800px;">
+          <div>
+          <br>
+                <span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我国桑蚕产业已经有了5500年的历史,一直是世界上茧丝出口大国。自从上世纪70年代，我国的蚕茧产量超过日本后，一直是世界上最大的蚕茧出口国。在改革开放后,国际政策的变化桑蚕产业持续发展现已成为某些地域重要的经济支柱，成为了落实脱贫攻坚和乡村振兴举措。近年来，蚕桑丝绸产业在技术进步、结构调整和品牌建设等方面取得了积极进展。根据蚕桑主产省（区、市）生产主管部门对春季蚕桑生产统计及年末对部分主产省的初步调查统计，2020年全国桑园面积1231万亩（含生态桑），发种量1662万张，桑蚕茧产量达到了68.6万吨，蚕茧和生丝产量占全球80%以上。<br>
+                  <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然而，蚕病对蚕桑生产影响很大，是导致蚕农养蚕减产减收的最主要的因素之一。发病的种类是以病毒病、微粒子病、真菌病为主，每年因蚕病造成的损失相当于蚕茧总产量的12%～25%。蚕农大幅减收甚至颗粒无收的情况时有发生，严重挫伤蚕农养蚕的积极性，危及产业健康持续发展。因此，正确和及时地诊断蚕病是生产实际中采取针对性防治措施的前提，但传统的人工目测的方法诊断蚕病存在两个问题：（1）蚕农并不能保证根据经验做出的判断完全正确；（2）由于没有专业人士及时现场诊断，可能会使病情延误或加重。<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自动化、工厂化和智能化养蚕生产线技术改变了传统养蚕模式，实现蚕桑工厂化饲育，进一步完善了蚕桑配套技术产业链，达到了节省人力并提升中养蚕效率的目标。然而，由于缺乏蚕农和技术专家的实时跟踪和疾病预警，现代化养蚕生产线容易造成病情报告延误和误判的问题，导致不能及时的对桑蚕疾病做出响应和干预，严重影响经济效益。另一方面，传统信息技术变革产生新一代计算机技术，其中包括人工智能、云计算、移动物联网和大数据等，都是具有代表性的新兴技术。其中，人工智能作为计算机科学的一个重要分支，通常可以将其简单概括成一种智能化的处理能力，能够和人一样感知、认知、决策、执行的人工程序或系统。随着以数字图像处理、传统机器学习和深度学习为代表的各种图像处理与识别算法的成熟，人工智能在农业方面的应用主要涉及检测、图像处理、模式识别等领域。大数据处理技术充分应用在农业养殖和市场销售领域中，最为核心的功能之一是具有专业知识和决策能力的专家系统，能够对农作物的生产链进行实时的监管控制，保证作物的产出量。 -->
+                </span>
+          </div>
+                <br>
+            <div style="width:400px;">
+              <el-image
+                :src="overview_url"
+                style="height: 180px;background: #ffffff;box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);border-radius: 5px 5px 0 0; margin-top:2px;"
+                >
+                </el-image>
+              <div class="img_info_overview" style="border-radius: 0 0 5px 5px; word-break: keep-all;">
+                <span style="color: white; letter-spacing: 6px">图1 桑蚕疾病监测与防治智慧服务系统</span>
+              </div>
+            </div>
+          <div>
+          <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了进一步落实国家和重庆市在蚕桑丝绸产业发展指导思想，推进蚕桑丝绸产业高质量发展，满足人民美好生活需要、带动相关产业发展、助推乡村振兴及脱贫攻坚，在规模化的工厂化养蚕背景下，研究如何利用人工智能（机器学习算法）相关信息技术，分析利用桑蚕疾病诊断与防治专家知识的大数据，构建如图1所示的桑蚕疾病监测与防治智慧服务系统，促进蚕桑养殖产业的大规模发展就显得尤为重要。
+          </div>
+        </div>
+    <div style="display: flex; flex-direction: column; align-items: center;
+                margin-left: 195px; margin-top:30px;
+                width: 800px;">
+          <el-divider style="background-color: #E4E7ED;width: 100%;height: 2px;margin-bottom: 0px;"></el-divider>
+          <span>
+          <p style="color:#969a9c; font-size: 16px;">Copyright ©️ 2022-2023 ssdlab.cn All Rights Reserved</p>
+          <p style="color:#969a9c; font-size: 16px;"> 渝ICP备2022001104号</p>
+          </span>
+    </div>
+    </div>
+
   </div>
 </template>
 
@@ -188,6 +229,7 @@ export default {
       active: 0,
       centerDialogVisible: true,
       mini_url:"http://ssdlab.cn:8888/down/ccpDbNUvHanm",
+      overview_url:"http://ssdlab.cn:8888/down/c9WJ3Gw9rzyI",
       url_1: "",
       url_2: "",
       textarea: "",
@@ -443,6 +485,13 @@ p {
   margin-bottom: 18px;
 }
 
+.divider {
+  background-color: #E4E7ED !important;
+  width: 100%;
+  height: 2px;
+  margin-bottom: 0px !important;
+}
+
 .clearfix:before,
 .clearfix:after {
   display: table;
@@ -482,8 +531,8 @@ p {
   /* margin: 0px auto; */
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-right: auto;
-  margin-left: 75px;
+  margin-right: 20px;
+  margin-left: 20px;
   padding: 0px auto;
   /* margin-right: 180px; */
   margin-bottom: 0px;
@@ -526,10 +575,17 @@ p {
   line-height: 30px;
 }
 
+.img_info_overview {
+  height: 30px;
+  text-align: center;
+  background-color: #21b3b9;
+  line-height: 30px;
+}
+
 .demo-image__preview1 {
   width: 250px;
   height: 290px;
-  margin: 20px 60px;
+  /* margin: 20px 60px; */
   float: left;
 }
 
@@ -537,7 +593,7 @@ p {
   width: 250px;
   height: 290px;
 
-  margin: 20px 460px;
+  /* margin: 20px 460px; */
   /* background-color: green; */
 }
 
