@@ -16,13 +16,13 @@
     <div id="CT">
       <div id="CT_image">
         <div id="Header" 
-        style="width: 800px; background-color: darkgreen;border-radius: 6px;     
+        style="width: 800px; background-color: #1cabae;border-radius: 6px;     
         margin-top: 0px;margin-bottom: 0px;margin-right: auto;margin-left: 230px;">
           <div id="word">
-            <h1>桑蚕疾病监测</h1>
+            <h1><span style="color: azure;">桑蚕疾病监测</span></h1>
           </div>
         </div>
-        <div style="display:inline-flex; margin-top:25px; justify-content: flex-start;">
+        <div style="display:inline-flex; margin-top:15px; justify-content: flex-start;">
           <div>
                 <el-image
                 :src="mini_url"
