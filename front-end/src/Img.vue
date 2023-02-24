@@ -7,7 +7,7 @@
 <script>
 import Images from "./components/Images";
 export default {
-  name: "眼疾辅助诊断系统",
+  // name: "眼疾辅助诊断系统",
   data() {
     return {};
   },

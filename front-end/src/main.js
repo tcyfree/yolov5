@@ -14,9 +14,14 @@ import '../src/assets/style.css'
 import './theme/index.css'
 
 // Vue.use(Element)
+import { 
+    Notification,
+} from 'element-ui'
+//应用插件
+Vue.prototype.$notify = Notification;
 
 //按需引入
-import { Dialog,Card,Image,Button,Tabs,Table,TabPane,TableColumn,Link,Progress } from 'element-ui';
+import { Dialog,Card,Image,Button,Tabs,Table,TabPane,TableColumn,Link,Progress, Option, Select, Divider, Loading } from 'element-ui';
 Vue.use(Dialog)
 Vue.use(Card)
 Vue.use(Image)
@@ -27,6 +32,11 @@ Vue.use(TabPane)
 Vue.use(TableColumn)
 Vue.use(Link)
 Vue.use(Progress)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(Divider)
+Vue.use(Loading)
+// Vue.use(Notification)
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -34,8 +44,6 @@ Vue.prototype.$http = axios
 
 const router = new VueRouter({
     routes: [
-        {path: "/App", component: App, meta: {title: "眼疾辅助诊断系统"},},
-        {path: "/img", component: IMG, meta: {title: "眼疾辅助诊断系统"},},
     ],
     mode: "history"
 })

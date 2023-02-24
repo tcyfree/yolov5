@@ -109,6 +109,16 @@
             </div>
           </div>
         </div>
+        <!-- <div>
+          请选择蚕龄：<el-select v-model="value" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </div> -->
 
         </el-card>
         </div>
@@ -252,6 +262,17 @@ export default {
         opacity: 0,
       },
       dialogTableVisible: false,
+      options: [{
+          value: 0,
+          label: '三龄'
+        }, {
+          value: 1,
+          label: '四龄'
+        }, {
+          value: 2,
+          label: '五龄'
+        }],
+        value: ''
     };
   },
   created: function () {
@@ -362,7 +383,7 @@ export default {
       this.$notify({
         title: "预测成功",
         message: "点击图片可以查看大图",
-        // duration: 0,
+        duration: 2000,
         type: "success",
       });
     },

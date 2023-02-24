@@ -11,7 +11,7 @@
 // import Footer from "./components/Footer";
 import Content from "./components/Content";
 export default {
-  name: "眼疾辅助诊断系统",
+  // name: "眼疾辅助诊断系统",
   data() {
     return {};
   },
