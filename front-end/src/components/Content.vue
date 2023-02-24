@@ -41,7 +41,7 @@
           style="
             border-radius: 8px;
             width: 800px;
-            height: 360px;
+            height: 372px;
             margin-bottom: -30px;
             background-color: beige;
             display:flex;
@@ -109,8 +109,10 @@
             </div>
           </div>
         </div>
-        <!-- <div>
-          请选择蚕龄：<el-select v-model="value" placeholder="请选择">
+
+        <div style="display: flex;align-items: center;">
+          <label style="margin-top:15px; color: #21b3b9; font-size:16px;font-weight:bold;">请选择蚕龄：</label>
+          <el-select v-model="selectedAge" placeholder="请选择蚕龄" style="margin-top:15px; width: 180px;">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -118,7 +120,7 @@
               :value="item.value">
             </el-option>
           </el-select>
-        </div> -->
+        </div>
 
         </el-card>
         </div>
@@ -147,7 +149,7 @@
                 />
               </el-button>
             <!-- <router-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" to="/download">测试样本下载</router-link> -->
-              <el-link class="right" target="block" type="primary" style="font-size:15px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
+              <el-link class="right" target="block" type="primary" style="font-size:16px;font-weight:bold;" href="http://ssdlab.cn:8888/down/0tQSNHhTa1rw">测试样本下载</el-link>
             </div>
           <el-tabs v-model="activeName"  class="unify add-border" style="padding-left:20px;padding-right:20px; padding-top:20px; background-color: beige; margin-top: 0px;margin-bottom: 0px;margin-right: 0px;margin-left: 230px;">
             <el-tab-pane label="检测到的目标" name="first">
@@ -272,7 +274,7 @@ export default {
           value: 2,
           label: '五龄'
         }],
-        value: ''
+        selectedAge: 0
     };
   },
   created: function () {
@@ -341,7 +343,7 @@ export default {
         headers: { "Content-Type": "multipart/form-data" },
       }; //添加请求头
       axios
-        .post(this.server_url + "/upload", param, config)
+        .post(this.server_url + "/upload?age=" + this.selectedAge, param, config)
         .then((response) => {
           if (response.status != 200) {
             alert("请重新上传，图片格式错误或服务器内部错误！");
