@@ -34,6 +34,8 @@ def after_request(response):
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
+# def set_jpg(file):
+#     file.filename = 
 
 @app.route('/')
 def hello_world():
@@ -43,14 +45,17 @@ def hello_world():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     file = request.files['file']
-    print(datetime.datetime.now(), file.filename)
+    option = request.args['age']
+    # print(datetime.datetime.now(), file.filename)
     if file and allowed_file(file.filename):
+        # if file.filename.rsplit('.', 1)[1] != 'jpg':
+        #     set_jpg(file)
         src_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(src_path)
         shutil.copy(src_path, './tmp/ct')
         image_path = os.path.join('./tmp/ct', file.filename)
         pid, image_info = core.main.c_main(
-            image_path, current_app.model, file.filename.rsplit('.', 1)[1])
+            image_path, current_app.model, file.filename.rsplit('.', 1)[1], option)
         return jsonify({'status': 1,
                         'image_url': 'https://cxy.ssdlab.cn/tmp/ct/' + pid,
                         'draw_url': 'https://cxy.ssdlab.cn/tmp/comp/' + pid,
