@@ -75,7 +75,9 @@ def download_file():
 def show_photo(file):
     if request.method == 'GET':
         if not file is None:
-            image_data = open(f'tmp/{file}', "rb").read()
+            path = file.rsplit('.', 1)[0]
+            image_path = '{}.{}'.format(path, 'jpg')
+            image_data = open(f'tmp/{image_path}', "rb").read()
             response = make_response(image_data)
             response.headers['Content-Type'] = 'image/png'
             return response
