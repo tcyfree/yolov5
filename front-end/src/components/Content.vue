@@ -309,6 +309,15 @@ export default {
     },
     // 上传文件
     update(e) {
+      let file = e.target.files[0];
+      // if(file.size > 3145728) {
+      //   alert("请上传小于3M的图片！");
+      //   return;
+      // }
+      // if cancel submit, the process is not processed
+      if (typeof file !== 'object') {
+        return
+      }
       this.percentage = 0;
       this.dialogTableVisible = true;
       this.url_1 = "";
@@ -322,12 +331,7 @@ export default {
       this.fullscreenLoading = true;
       this.loading = true;
       this.showbutton = false;
-      let file = e.target.files[0];
-      // if(file.size > 3145728) {
-      //   alert("请上传小于3M的图片！");
-      //   location.reload()
-      //   return;
-      // }
+      
       this.url_1 = this.$options.methods.getObjectURL(file);
       let param = new FormData(); //创建form对象
       param.append("file", file, file.name); //通过append向form对象添加数据
