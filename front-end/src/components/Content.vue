@@ -321,11 +321,11 @@ export default {
       this.loading = true;
       this.showbutton = false;
       let file = e.target.files[0];
-      if(file.size > 3145728) {
-        alert("请上传小于3M的图片！");
-        location.reload()
-        return;
-      }
+      // if(file.size > 3145728) {
+      //   alert("请上传小于3M的图片！");
+      //   location.reload()
+      //   return;
+      // }
       this.url_1 = this.$options.methods.getObjectURL(file);
       let param = new FormData(); //创建form对象
       param.append("file", file, file.name); //通过append向form对象添加数据
