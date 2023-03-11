@@ -166,19 +166,21 @@
                 lazy
                 class="unify"
               >
-                <el-table-column label="结果" width="250px" style="text-align:center">
+                <el-table-column label="结果" width="200px" style="text-align:center">
                   <template slot-scope="scope">
                     <span>{{ scope.row[2] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="目标类别" width="250px">
+                <el-table-column label="目标类别" width="200px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="措施" width="300px">
+                <el-table-column label="措施" width="400px">
                   <template slot-scope="scope">
+                    <div style="width:325px">
                     <span>{{ scope.row[1] }}</span>
+                    </div>
                   </template>
                 </el-table-column>
               </el-table>
