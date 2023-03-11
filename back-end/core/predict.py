@@ -5,7 +5,7 @@ from classification import Classification
 from PIL import Image
 import numpy
 
-def compress_images(infile,outfile,mb=350,step=10, quality=60):
+def compress_images(infile,outfile,mb=350,step=10, quality=80):
     image_size = os.path.getsize(infile)/1024
     im = Image.open(infile)
     if image_size <= mb:
