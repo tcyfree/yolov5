@@ -178,7 +178,7 @@
                 </el-table-column>
                 <el-table-column label="措施" width="400px">
                   <template slot-scope="scope">
-                    <div style="width:325px; text-align: initial;">
+                    <div style="width:325px; text-align: initial; margin-left:10px;">
                     <span>{{ scope.row[1] }}</span>
                     </div>
                   </template>
