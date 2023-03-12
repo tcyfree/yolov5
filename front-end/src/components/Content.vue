@@ -166,19 +166,19 @@
                 lazy
                 class="unify"
               >
-                <el-table-column label="结果" width="200px" style="text-align:center">
+                <el-table-column label="概率" width="200px" style="text-align:center">
                   <template slot-scope="scope">
                     <span>{{ scope.row[2] }}</span>
                   </template>
                 </el-table-column>
-                <el-table-column label="目标类别" width="200px">
+                <el-table-column label="类别" width="200px">
                   <template slot-scope="scope">
                     <span>{{ scope.row[0] }}</span>
                   </template>
                 </el-table-column>
                 <el-table-column label="措施" width="400px">
                   <template slot-scope="scope">
-                    <div style="width:325px">
+                    <div style="width:325px; text-align: initial;">
                     <span>{{ scope.row[1] }}</span>
                     </div>
                   </template>
@@ -249,7 +249,9 @@ export default {
       textarea: "",
       srcList: [],
       srcList1: [],
-      feature_list: [],
+      feature_list: [
+        [1,"1.巡视蚕座，拈除病弱小蚕并无害化处理。\n 2.每天用防僵粉或新鲜石灰粉对蚕体蚕座消毒两次。\n 3.用消毒液对蚕室蚕具及周围环境进行消毒。\n4.稀养，加强通风换气，避免高温多湿。\n5.查明病原来源，避免再次感染。",3]
+      ],
       feature_list_1: [],
       feat_list: [],
       url: "",
@@ -448,6 +450,10 @@ p {
 }
 
 .right{ float:right; width:100px; color:#409EFF;}
+
+.el-table .cell {
+  white-space: pre-line !important;   /*这是重点。文本换行*/
+}
 
 .el-table td, .el-table th {
     text-align: center !important;
